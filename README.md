@@ -12,7 +12,7 @@
     
 -Run this command in your terminal,don't forget to activate your virtual environment before execution
 
--After this command,execute the code by the command 
+-After this command,move to the directory which contains Manage.py file and execute the code by the command 
 
       python manage.py runserver
 
