@@ -6,13 +6,15 @@
 
 -Before execution,makemigrations by the following two commands
 
-    -python manage.py makemigrations
+    python manage.py makemigrations
     
-    -python manage.py migrate
+    python manage.py migrate
     
 -Run this command in your terminal,don't forget to activate your virtual environment before execution
 
--After this command,execute the code by the command "python manage.py runserver"
+-After this command,execute the code by the command 
+
+      python manage.py runserver
 
 -After successful execution,url link will appear and run the url on your broswer
 
