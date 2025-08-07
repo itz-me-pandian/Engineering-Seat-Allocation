@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display:flex;
+            align-items: center;
+        }
+        .form-label {
+            font-weight: bold;
+            min-width: 150px;
+            color: #555;
+            text-align:center;
+            margin-right: 20px;
+        }
+        .form-input {
+            flex-grow: 1;
+            color: #333;
+            text-align: left;
+        }
+        .colon {
+            margin: 0 6px;
+            font-weight: bold;
+        }
+        .welcome-message {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: match-parent;
+        }
+
+        .button-container {
+            justify-content: space-between;
+            text-align: center;
+        }
+        
+        .button-container a.button,
+        .back-button,
+        .button-container button {
+            display: inline-flex;
+            justify-content: center;
+            padding: 12px 25px;
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .button-container a.button:hover,
+        .back-button:hover,
+        .button-container button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Candidate Information</h1>
+        <div class="form-group">
+            <div class="form-label welcome-message">HELLO ! THIS IS <span style="text-transform: uppercase;">{{ user.uname }} </span>!!</div><br><br>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Contact Number</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.id }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Email</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.uemail }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Caste</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.ucaste }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">DOB-Year</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.uyear }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Maths Mark</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.um1 }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Physics Mark</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.um2 }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Chemistry Mark</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.um3 }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">BIO/CSE Mark</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.um4 }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Total Mark</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.utotal }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">Calculated Cutoff</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.ucutoff }}</div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">New value  <br>(Merit Value)</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{ user.unvalue }}</div>
+        </div>
+        <div class="form-group">
+            {% if user.urank != 0 %}
+            <div class="form-label">Rank</div>
+            <div class="colon">:</div>
+            <div class="form-input">{{  user.urank }}</div>
+            {% else %}
+            <div class="form-label">Rank</div>
+            <div class="colon">:</div>
+            <div class="form-input"> Not yet ranked </div>
+            {% endif %}
+        </div>
+        <div class="button-container">
+            {% if user.urank != 0 %}
+            <a href="/c_fill/{{user.id}}" class="back-button">Choice Filling</a>
+            {% endif %}
+            <button onclick= window.history.back() class="back-button">Back</button>
+        </div>
+    </div>
+</body>
+</html>

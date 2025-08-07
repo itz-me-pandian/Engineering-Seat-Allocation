@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice Filling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(103, 102, 102);
+        }
+        h2, h3, h4 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+        .input,
+        select {
+            text-align: center;
+            width: calc(60% - 20px);
+            padding: 8px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            justify-content: space-between;
+            text-align: center;
+        }
+        
+        .button-container a.button,
+        .button-container button {
+            display: inline-flex;
+            justify-content: center;
+            padding: 12px 25px;
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .button-container a.button:hover,
+        .button-container button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Choice Filling Form</h2>
+        <h3>Hello, <span style="text-transform: uppercase;">{{ user.uname }} !</span></h3>
+        <h4>Welcome to SSN Choice Filling Page</h4>
+        <form method="POST" action="{% url 'save_choices' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input class="input" id="name" name="name" value="{{ user.uname }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="num">Contact number:</label>
+                <input class="input" id="num" name="num" value="{{ user.id }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cutoff">Cutoff:</label>
+                <input class="input" id="cutoff" name="cutoff" value="{{ user.ucutoff }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="rank">Rank:</label>
+                <input class="input" id="rank" name="rank" value="{{ user.urank }}" readonly>
+            </div>
+            {% if student.pref1 and student.pref2 and student.pref3 %}
+            <div class="form-group">
+                <label for="pref1">First Preference:</label>
+                <input class="input" id="pref1" name="pref1" value="{{ student.pref1 }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="pref2">Second Preference:</label>
+                <input class="input" id="pref2" name="pref2" value="{{ student.pref2 }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="pref3">Third Preference:</label>
+                <input class="input" id="pref3" name="pref3" value="{{ student.pref3 }}" readonly>
+            </div>
+            {% if student.allotted_course != 'NULL' %}
+            <div class="form-group">
+                <label for="allotted_course">Allotted Department :</label>
+                <input class="input" id="allotted_course" name="allotted_course" value="{{ student.allotted_course }}" readonly>
+            </div>
+            {% endif %}
+            <div class="button-container">
+                <a class="button" href="/editprofile/{{user.id}}" style="text-decoration: none;">Back</a>
+                <!--<button type="submit" style="width: 80px;">Save</button>-->
+            </div>
+            {% else %}
+            <div class="form-group">
+                <label for="pref1">First Preference:</label>
+                <select id="pref1" name="pref1" required>
+                    <option value="">Select Option</option>
+                    <option value="IT">IT</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BME">BME</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="CHEMICAL">CHEMICAL</option>
+                    <option value="MTECH">MTECH</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pref2">Second Preference:</label>
+                <select id="pref2" name="pref2" required>
+                    <option value="">Select Option</option>
+                    <option value="IT">IT</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BME">BME</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="CHEMICAL">CHEMICAL</option>
+                    <option value="MTECH">MTECH</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pref3">Third Preference:</label>
+                <select id="pref3" name="pref3" required>
+                    <option value="">Select Option</option>
+                    <option value="IT">IT</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BME">BME</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="CHEMICAL">CHEMICAL</option>
+                    <option value="MTECH">MTECH</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <a class="button" href="/editprofile/{{user.id}}" style="text-decoration: none;">Back</a>
+                <button type="submit" style="width: 80px;">Submit</button>
+            </div>   
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

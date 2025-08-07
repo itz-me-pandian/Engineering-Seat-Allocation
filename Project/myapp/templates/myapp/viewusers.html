@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background-color: #007bff;
+        }
+        #para {
+            font-weight: bold;
+            color: #fe0404;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        {% if messages %}
+             <ul class="messages">
+                {% for message in messages %}
+                <p id="para" {%if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+            {%endif%}
+        <h1>Candidates Information</h1>
+        {% if userdata %}
+        <div class="table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>User Email</th>
+                        <th>Contact Number</th>
+                        <th>Caste</th>
+                        <th>Year of birth</th>
+                        <th>Maths mark</th>
+                        <th>Physics mark</th>
+                        <th>Chemistry mark</th>
+                        <th>BIO/CSE mark</th>
+                        <th>Total</th>
+                        <th>Cutoff</th>
+                        <th>New Value</th>
+                        <th>Rank</th>
+                        <th>Delete</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for us in userdata %}
+                        <tr>
+                            <td>{{ us.uname }}</td>
+                            <td>{{ us.upass }}</td>
+                            <td>{{ us.uemail }}</td>
+                            <td>{{ us.id }}</td>
+                            <td>{{ us.ucaste }}</td>
+                            <td>{{ us.uyear }}</td>
+                            <td>{{ us.um1 }}</td>
+                            <td>{{ us.um2 }}</td>
+                            <td>{{ us.um3 }}</td>
+                            <td>{{ us.um4 }}</td>
+                            <td>{{ us.utotal }}</td>
+                            <td>{{ us.ucutoff }}</td>
+                            <td>{{ us.unvalue }}</td>
+                            <td>{{ us.urank }}</td>
+                            <td>
+                                <a href="/deleteprofile/{{us.id}}" style="text-decoration: none;">Delete</a>
+                            </td>
+                            <td>
+                                <a href="/editprofile/{{us.id}}" style="text-decoration: none;">View</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </center>
+    <div class="button-container">
+        <a href="{% url 'index' %}" class="back-button">Back</a>
+        <a href="{% url 'ranking' %}" class="back-button">Generate Ranklist</a>
+        {% if all_ranks_positive %}
+            <a href="{% url 'allot' %}" class="back-button">Allot Seat</a>
+        {% endif %}
+        <a href="{% url 'index' %}" class="back-button">Logout</a>
+        {% else %}
+        <h2>No students !</h2>
+        <div class="button-container">
+            <a href="{% url 'index' %}" class="back-button">Back</a>
+            <a href="{% url 'index' %}" class="back-button">Logout</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

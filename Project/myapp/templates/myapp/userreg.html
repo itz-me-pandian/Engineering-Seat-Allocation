@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            text-align: center;
+        }
+        
+        form {
+            width: 80%;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 40px;
+            padding: 40px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fcfdfe;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        input[type="number"],
+        input[type="submit"] {
+            width: 40%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            background-color: #0056b3;
+            margin-right: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        
+        input[type="submit"]:hover,
+        .back-button:hover {
+            background-color: #0af42d;
+        }
+        
+        select[name="tucaste"],
+        select[name="tuyear"] {
+            width: 40%;
+        }
+        
+        .button-container {
+            margin-top: 20px;
+        }
+        
+        .back-button {
+            background-color: #0056b3;
+            margin-right: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        #para {
+            font-weight: bold;
+            color: #fe0404;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+   
+<body>
+    <center>
+        <form name="user_registration" method="post" action="{% url 'insertuser' %}">
+            {% csrf_token %}
+            <h1>Hello Candidate ! </h1>
+            <h2>Welcome to Alloteasy !!</h2>
+            <h2>Register here with your details !!!</h2>
+            {% if form.errors %}
+                <div class="error-message">Please correct the following errors:</div>
+            {% endif %}
+            <label for="tuid">Contact *:</label>
+            <input type="number" id="tuid" name="tuid" min="1000000000" max="9999999999" required><br>
+            <label for="tuname">Name *:</label>
+            <input type="text" id="tuname" name="tuname" required><br>
+            <label for="tuemail">Email *:</label>
+            <input type="email" id="tuemail" name="tuemail" required><br>
+            <label for="tucaste">Caste *:</label>
+            <select id="tucaste" name="tucaste" required>
+                <option value="OC">OC</option>
+                <option value="BC">BC</option>
+                <option value="MBC">MBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+            </select><br>
+            <label for="tuyear">DOB-year *:</label>
+            <select id="tuyear" name="tuyear" required>
+                <option value="2005">2005</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2006">2006</option>
+            </select><br>
+            <label for="tum1">Maths Marks *:</label>
+            <input type="number" id="tum1" name="tum1" min="35" max="100" required><br>
+            <label for="tum2">Physics Mark *:</label>
+            <input type="number" id="tum2" name="tum2" min="35" max="100" required><br>
+            <label for="tum3">Chemistry Mark *:</label>
+            <input type="number" id="tum3" name="tum3" min="35" max="100" required><br>
+            <label for="tum4">CSE/Biology Mark*:</label>
+            <input type="number" id="tum4" name="tum4" min="35" max="100" required><br>
+
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p id="para" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="button-container">
+                <input type="submit" style="width: 90px;" name="reg" value="Get OTP">
+                <a href="{% url 'index' %}" class="back-button">Back</a>
+            </div>
+        </form>
+    </center>
+</body>
+</html>

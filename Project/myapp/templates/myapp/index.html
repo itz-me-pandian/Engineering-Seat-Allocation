@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-image {
+            width: 100%;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            max-width: calc(33.33% - 20px);
+        }
+
+        .button-container span {
+            font-weight: bolder;
+        }
+
+        .button-container img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .button-container a {
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-container a {
+                max-width: 100%;
+            }
+
+            .footer h3 {
+                font-size: 20px;
+            }
+
+            .footer p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<img src="{% static 'images/Allotpic.png' %}" alt="ECommerce" class="top-image">
+
+<div class="button-container">
+    <a href="{% url 'userreg' %}">
+        <span>New User Registration</span>
+        <img src="{% static 'images/register.jpg' %}" alt="Student Image">
+    </a>
+    <a href="{% url 'login' %}">
+        <span>Login</span>
+        <img src="{% static 'images/loginpic.jpg' %}" alt="Login Image">
+    </a>
+    <a href="{% url 'adlogin' %}">
+        <span>Admin Page</span>
+        <img src="{% static 'images/admin.jpg' %}" alt="Admin Image">
+    </a>
+</div>
+
+<div class="footer">
+    <h3>Contact Us</h3>
+    <p>Email: allotregofficial@gmail.com</p>
+    <p>Phone: +123 456 7890</p>
+    <p>Address: SSN college of Engineering,OMR road,Kalavakam,Chennai,Tamil nadu</p>
+    <div class="social-icons">
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/&ved=2ahUKEwipgcCxlaGGAxWWUWcHHeF9BCYQFnoECAYQAQ&usg=AOvVaw2q27ov2cpCynr72DmuSqEz"><i class="fa fa-facebook"></i></a>
+        <a href="https://x.com/?lang=en"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/&ved=2ahUKEwja1dzrlaGGAxUfU2wGHVZxA0wQFnoECAgQAQ&usg=AOvVaw1cBeRoOpMhZ3-x5M1sA3Fm"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+    </div>
+</div>
+
+<!-- Add Font Awesome for social media icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</body>
+
+</html>
