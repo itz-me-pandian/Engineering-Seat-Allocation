@@ -2,7 +2,7 @@
 
 -Make sure the database 'mydjangodb' is present in your MySQL database
 
--Change the password of MySQL database to ''
+-Change the password of MySQL database to ""
 
 -Before execution,makemigrations by the following two commands
 
