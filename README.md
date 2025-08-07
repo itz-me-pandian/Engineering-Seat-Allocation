@@ -5,7 +5,9 @@
 -Change the password of MySQL database to ''
 
 -Before execution,makemigrations by the following two commands
+
     -python manage.py makemigrations
+    
     -python manage.py migrate
     
 -Run this command in your terminal,don't forget to activate your virtual environment before execution
