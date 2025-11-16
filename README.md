@@ -24,11 +24,11 @@ flowchart TD
 
 ## Chapters
 
-1. [URL Routing](01_url_routing_.md)
-2. [Web Request Handling (Views)](02_web_request_handling__views__.md)
-3. [Django Models (User & Student)](03_django_models__user___student__.md)
-4. [Student Ranking System](04_student_ranking_system_.md)
-5. [Seat Allotment Engine](05_seat_allotment_engine_.md)
-6. [Database Interaction Layer](06_database_interaction_layer_.md)
+1. [URL Routing](readme_files/01_url_routing_.md)
+2. [Web Request Handling (Views)](readme_files/02_web_request_handling__views__.md)
+3. [Django Models (User & Student)](readme_files/03_django_models__user___student__.md)
+4. [Student Ranking System](readme_files/04_student_ranking_system_.md)
+5. [Seat Allotment Engine](readme_files/05_seat_allotment_engine_.md)
+6. [Database Interaction Layer](readme_files/06_database_interaction_layer_.md)
 
 ---
