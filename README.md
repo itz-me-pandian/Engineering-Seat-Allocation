@@ -32,3 +32,4 @@ flowchart TD
 6. [Database Interaction Layer](readme_files/06_database_interaction_layer_.md)
 
 ---
+<sub><sup>© 2025 [Pandiarajan D](https://github.com/itz-me-pandian). Educational Purpose.</sub></sub>
