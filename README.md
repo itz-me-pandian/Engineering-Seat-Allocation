@@ -21,4 +21,4 @@
 
     -The default admin username is 1234567890 and its password is abc2005
 
-[Full Explanation](/readme_files/Overview.md)
+[Full Explanation](Overview.md)
