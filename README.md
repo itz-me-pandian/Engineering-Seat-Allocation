@@ -1,4 +1,4 @@
-# Welcome to AllotEasy - Engineering-Seat-Allocation System
+### Welcome to AllotEasy : Engineering-Seat-Allocation System
 
     -Extract the file
     
