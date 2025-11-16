@@ -95,7 +95,7 @@ The core logic of seat allotment resides in the `allocate_seats` function within
 
 **Part 1: Preparing Student Data (Fetching/Generating Preferences)**
 
-First, the system needs to get all the student details, especially their preferences. If a student hasn't explicitly filled choices, the system might generate random ones.
+First, the system needs to get all the student details, especially their preferences. If a student hasn't explicitly filled choices, the system might generate random ones(to simulate the flow).
 
 ```python
 # File: Project/myapp/all.py (Simplified - Part 1)
@@ -301,5 +301,6 @@ This engine brings fairness and automation to the complex process of college adm
 [Next Chapter: Database Interaction Layer](06_database_interaction_layer_.md)
 
 ---
+
 
  <sub><sup>**References**: [[1]](https://github.com/itz-me-pandian/Engineering-Seat-Allocation/blob/1a0dba2424984bbc23ebdfb95b2ed13cd798a0ac/Project/myapp/all.py), [[2]](https://github.com/itz-me-pandian/Engineering-Seat-Allocation/blob/1a0dba2424984bbc23ebdfb95b2ed13cd798a0ac/Project/myapp/allotment.csv), [[3]](https://github.com/itz-me-pandian/Engineering-Seat-Allocation/blob/1a0dba2424984bbc23ebdfb95b2ed13cd798a0ac/Project/myapp/seat.txt), [[4]](https://github.com/itz-me-pandian/Engineering-Seat-Allocation/blob/1a0dba2424984bbc23ebdfb95b2ed13cd798a0ac/Project/myapp/views.py)</sup></sub>
